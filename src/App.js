@@ -59,8 +59,13 @@ const Board = () => {
     status = 'Next player: ' + (xIsNext ? 'X' : 'O')
   } 
 
+  const onBtnReset = () => {
+    setSquares(Array(9).fill(null))
+  }
+
   return (
     <>
+      
       <div className="status">{status}</div>
       <div className="board-row"></div>
       <div className="board-row">
@@ -76,8 +81,9 @@ const Board = () => {
       <div className="board-row">
         <Square value={squares[6]} onSquareClick={() => { handleClick(6) }}  />
         <Square value={squares[7]} onSquareClick={() => { handleClick(7) }}  />
-        <Square value={squares[8]} onSquareClick={() => { handleClick(8) }}  />
+        <Square value={squares[8]} onSquareClick={() => { handleClick(8) }} />
       </div>
+      <button onClick={onBtnReset}>RESET</button>
     </>
   );
 };
